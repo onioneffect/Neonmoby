@@ -5,6 +5,7 @@ ROOT_URL = "https://neonmob.com/api/"
 
 class Set:
     def __init__(self, resp : r.models.Response):
+        self.response = resp
         json_dict = json.loads(resp.text)
 
         for key in json_dict.keys():
