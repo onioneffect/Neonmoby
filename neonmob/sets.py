@@ -11,15 +11,10 @@ class Set:
             setattr(self, key, json_dict[key])
 
     def get_values(self, *args) -> tuple:
-        return_list = []
+        return tuple(getattr(self, key) for key in args)
 
-        for key in args:
-            try:
-                return_list.append(getattr(self, key))
-            except AttributeError:
-                pass
-
-        return tuple(return_list)
+def neon_api_caller(*args, **kwargs):
+    pass
 
 def get_set_by_id(id_num : int) -> Set:
     return Set(r.get(neonmob.SET_URL.format(id_num)))
