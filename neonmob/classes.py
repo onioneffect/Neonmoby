@@ -1,10 +1,7 @@
-# TODO: Make a parent class with the current __init__ method.
-
-import neonmob
 import requests as r
 import json
 
-class Set:
+class NeonResponse:
     def __init__(self, resp : r.models.Response):
         self.response = resp
         json_dict = json.loads(resp.text)
@@ -14,3 +11,9 @@ class Set:
 
     def get_values(self, *args) -> tuple:
         return tuple(getattr(self, key) for key in args)
+
+class Set(NeonResponse):
+    pass
+
+class User(NeonResponse):
+    pass
