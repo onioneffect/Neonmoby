@@ -1,9 +1,17 @@
 import requests as r
 
 my_heads = {
-    "Foo": "Bar"
-    # This part is for plugging in the headers from your own browser
-    # Still a WIP
+    "Host": "www.neonmob.com",
+    "User-Agent": "",
+    "Accept": "",
+    "Accept-Language": "",
+    "Accept-Encoding": "",
+    "Connection": "",
+    "Referer": "",
+    "Cookie": "",
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-origin"
 }
 
 class NeonmobSession:
