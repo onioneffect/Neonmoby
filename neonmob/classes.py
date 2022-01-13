@@ -1,15 +1,10 @@
-import neonmob
+import requests as r
 import json
 
 class NeonResponse:
-    def __init__(self, resp):
-        if isinstance(resp, neonmob.Settings.resp_class):
-            print("Working isinstance!")
-        else:
-            print("isinstance returns false!")
-
-        content = resp.text
-        json_dict = json.loads(content)
+    def __init__(self, resp : r.models.Response):
+        self.response = resp
+        json_dict = json.loads(resp.text)
 
         for key in json_dict.keys():
             setattr(self, key, json_dict[key])
