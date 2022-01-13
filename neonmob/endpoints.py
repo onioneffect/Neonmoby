@@ -1,13 +1,15 @@
+from urllib import request
 import neonmob
+import requests as r
 
 def neon_api_caller(**kwargs):
     if not isinstance(kwargs["class_ref"], type):
         raise TypeError("class_ref must be a class")
 
-    return_request = neonmob.Settings.getter(
+    return_request = r.get(
         kwargs["endpoint"].format(kwargs["fmt"])
     )
-    
+
     return_type = kwargs["class_ref"]
     return return_type(return_request)
 

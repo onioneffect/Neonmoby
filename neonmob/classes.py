@@ -9,6 +9,8 @@ class NeonResponse:
         for key in json_dict.keys():
             setattr(self, key, json_dict[key])
 
+    # In case your set can't be found, it will probably
+    # raise an AttributeError, because it has no "id" key
     def get_values(self, *args) -> tuple:
         return tuple(getattr(self, key) for key in args)
 
