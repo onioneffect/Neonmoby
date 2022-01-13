@@ -1,6 +1,8 @@
 import requests as r
 import json
 
+from neonmob.urls import ROOT_URL
+
 class NeonResponse:
     def __init__(self, resp : r.models.Response):
         self.response = resp
@@ -17,5 +19,9 @@ class NeonResponse:
 class Set(NeonResponse):
     pass
 
+class Tiers(NeonResponse):
+    pass
+
 class User(NeonResponse):
     pass
+
