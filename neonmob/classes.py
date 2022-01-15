@@ -24,4 +24,3 @@ class Tiers(NeonResponse):
 
 class User(NeonResponse):
     pass
-

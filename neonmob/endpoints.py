@@ -5,18 +5,22 @@ def neon_api_caller(**kwargs):
     if not isinstance(kwargs["class_ref"], type):
         raise TypeError("class_ref must be a class")
 
-    if kwargs["headers"]:
+    try:
+        kwargs["headers"]
         return_request = r.get(
             kwargs["endpoint"].format(kwargs["fmt"]),
             headers=kwargs["headers"]
         )
-    else:
+    except KeyError:
         return_request = r.get(
             kwargs["endpoint"].format(kwargs["fmt"])
         )
 
-    if kwargs["print"]:
+    try:
+        kwargs["print"]
         print(return_request.text)
+    except KeyError:
+        pass
 
     return_type = kwargs["class_ref"]
     return return_type(return_request)
